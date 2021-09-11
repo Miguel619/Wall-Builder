@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
+    public GameObject snap;
     public Color color;
     public Vector3 localScale;
     private Renderer brickRenderer;
+    
+    
 
 
     void Start()
@@ -25,5 +28,17 @@ public class Brick : MonoBehaviour
     public void setScale(Vector3 scale){
         this.localScale = scale;
         gameObject.transform.localScale = scale;
+    }
+    public void addSnaps(){
+        Vector3 brickPos = gameObject.transform.position;
+        GameObject topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+        topSnap.transform.parent = gameObject.transform;
+        topSnap.transform.position += new Vector3(0, .05f, 0);
+        topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+        topSnap.transform.parent = gameObject.transform;
+        topSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
+        topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+        topSnap.transform.parent = gameObject.transform;
+        topSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
     }
 }

@@ -81,4 +81,7 @@ public class MenuManager : MonoBehaviour
             previewBrick.setScale(new Vector3(.3f, .05f, .05f));
         }
     }
+    public void addSnaps(){
+        previewBrick.addSnaps();
+    }
 }

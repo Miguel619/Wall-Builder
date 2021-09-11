@@ -18,6 +18,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [SerializeField]
         [Tooltip("Instantiates this prefab on a plane at the touch location.")]
         GameObject m_PlacedPrefab;
+        [SerializeField]
         GameObject brick;
 
         /// <summary>
@@ -67,6 +68,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 {
                     spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
                     spawnedChild = Instantiate(brick, hitPose.position, hitPose.rotation);
+                    spawnedChild.GetComponent<Renderer>().material.color = brick.GetComponent<Brick>().color;
                     spawnedChild.transform.parent = spawnedObject.transform;
 
                 }
