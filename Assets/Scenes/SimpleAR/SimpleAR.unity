@@ -2615,7 +2615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlacedPrefab: {fileID: 4454794848828269854, guid: ebf449a4596983c408f74b821e4a7f8d,
     type: 3}
-  previewBrick: {fileID: 0}
 --- !u!114 &1335839537
 MonoBehaviour:
   m_ObjectHideFlags: 0
