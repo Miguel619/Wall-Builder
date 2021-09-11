@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public Color color = Color.white;
+    public Color color;
     public Vector3 localScale;
     private Renderer brickRenderer;
 
@@ -12,6 +12,7 @@ public class Brick : MonoBehaviour
     void Start()
     {
         brickRenderer = gameObject.GetComponent<Renderer>();
+        color = Color.white;
         brickRenderer.material.color = color;
         localScale = gameObject.transform.localScale;
     }

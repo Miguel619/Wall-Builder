@@ -18,6 +18,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [SerializeField]
         [Tooltip("Instantiates this prefab on a plane at the touch location.")]
         GameObject m_PlacedPrefab;
+        public Brick previewBrick;
 
         /// <summary>
         /// The prefab to instantiate on touch.
@@ -64,6 +65,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 if (spawnedObject == null)
                 {
                     spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                    Brick initBrick = spawnedObject.GetComponentInChildren<Brick>();
+                    initBrick.setColor(previewBrick.color);
+                    initBrick.setScale(previewBrick.localScale);
+
                 }
                 else
                 {
