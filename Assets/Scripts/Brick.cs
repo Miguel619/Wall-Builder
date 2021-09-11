@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Color color = Color.white;
+    public Vector3 localScale;
+    private Renderer brickRenderer;
+
+
     void Start()
     {
-        
+        brickRenderer = gameObject.GetComponent<Renderer>();
+        brickRenderer.material.color = color;
+        localScale = gameObject.transform.localScale;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void setColor(Color color){
+        this.color = color;
+        brickRenderer.material.color = color;
+    }
+
+    public void setScale(Vector3 scale){
+        this.localScale = scale;
+        gameObject.transform.localScale = scale;
     }
 }

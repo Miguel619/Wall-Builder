@@ -47,4 +47,38 @@ public class MenuManager : MonoBehaviour
     public void sceneTransition(string newScene){ 
         SceneManager.LoadScene(newScene);
     }
+    public void colorPicker(string color){
+        if(color == "Red"){
+            previewBrick.setColor(Color.red);
+        }
+        if(color == "Blue"){
+            previewBrick.setColor(Color.blue);
+        }
+        if(color == "Green"){
+            previewBrick.setColor(Color.green);
+        }
+        if(color == "Black"){
+            previewBrick.setColor(Color.black);
+        }
+        if(color == "White"){
+            previewBrick.setColor(Color.white);
+        }
+    }
+    public void scaleSelector(int scale){
+        if(scale == 1){
+            previewBrick.setScale(new Vector3(.1f, .05f, .05f));
+        }
+        if(scale == 2){
+            previewBrick.setScale(new Vector3(.15f, .05f, .05f));
+        }
+        if(scale == 3){
+            previewBrick.setScale(new Vector3(.2f, .05f, .05f));
+        }
+        if(scale == 4){
+            previewBrick.setScale(new Vector3(.25f, .05f, .05f));
+        }
+        if(scale == 5){
+            previewBrick.setScale(new Vector3(.3f, .05f, .05f));
+        }
+    }
 }

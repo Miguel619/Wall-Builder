@@ -1198,14 +1198,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: scaleSelector
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1331,16 +1331,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: colorPicker
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Green
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &828561192
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 858690248}
   - component: {fileID: 858690247}
   m_Layer: 5
-  m_Name: Pink
+  m_Name: White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1464,16 +1464,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: colorPicker
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: White
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &858690248
@@ -1525,6 +1525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311233441058801321, guid: 848f1b7426aa18b438b24987c87f8c04,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 311233441058801321, guid: 848f1b7426aa18b438b24987c87f8c04,
         type: 3}
@@ -1862,14 +1867,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: scaleSelector
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1995,14 +2000,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: scaleSelector
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2300,16 +2305,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: colorPicker
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Red
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1038657689
@@ -2560,7 +2565,6 @@ GameObject:
   - component: {fileID: 1335839537}
   - component: {fileID: 1335839539}
   - component: {fileID: 1335839536}
-  - component: {fileID: 1335839538}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -2625,20 +2629,6 @@ MonoBehaviour:
   m_PlanePrefab: {fileID: 1568414836858200, guid: f0e0be81472ff1243aa2afa27e5d0e61,
     type: 3}
   m_DetectionMode: -1
---- !u!114 &1335839538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335839533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ab0e80cee9cc1d44928bfe488dd1e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PointCloudPrefab: {fileID: 1854016325464908, guid: 0d4f49e744bffd14eb527ba76c9bba12,
-    type: 3}
 --- !u!114 &1335839539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,14 +2858,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: scaleSelector
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3248,16 +3238,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: colorPicker
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Black
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1818112503
@@ -3381,14 +3371,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: scaleSelector
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3837,7 +3827,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: Pink
+  m_Text: White
 --- !u!222 &2043924126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3929,16 +3919,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 948874504}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 948874509}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: colorPicker
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Blue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2053662761
