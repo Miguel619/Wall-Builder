@@ -2626,7 +2626,7 @@ MonoBehaviour:
   wallSnaps: []
   activeColor: {r: 1, g: 0, b: 0, a: 1}
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  arCamera: {fileID: 282840813}
+  origin: {fileID: 1335839534}
 --- !u!114 &1335839537
 MonoBehaviour:
   m_ObjectHideFlags: 0

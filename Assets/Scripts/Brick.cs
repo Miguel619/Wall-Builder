@@ -37,18 +37,21 @@ public class Brick : MonoBehaviour
         // top snap
         GameObject curSnap = Instantiate(snap, brickPos, wallRotation);
         curSnap.transform.parent = gameObject.transform;
+        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3(0, .05f, 0);
         curSnap.GetComponent<Snap>().isTop = true;
         snaps.Add(curSnap.GetComponent<Snap>());
         // right snap
         curSnap = Instantiate(snap, brickPos, wallRotation);
         curSnap.transform.parent = gameObject.transform;
+        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
         curSnap.GetComponent<Snap>().isRight = true;
         snaps.Add(curSnap.GetComponent<Snap>());
         // left snap
         curSnap = Instantiate(snap, brickPos, wallRotation);
         curSnap.transform.parent = gameObject.transform;
+        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
         curSnap.GetComponent<Snap>().isLeft = true;
         snaps.Add(curSnap.GetComponent<Snap>());
