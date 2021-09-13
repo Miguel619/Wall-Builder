@@ -28,6 +28,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         private Color inactiveColor = Color.gray;
         [SerializeField]
         private Camera arCamera;
+        private PlaneDetectionController planeDetectionController;
         
         /// <summary>
         /// The prefab to instantiate on touch.
@@ -47,6 +48,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         void Awake()
         {
             m_RaycastManager = GetComponent<ARRaycastManager>();
+            planeDetectionController = GetComponent<PlaneDetectionController>();
         }
 
         bool TryGetTouchPosition(out Vector2 touchPosition)
@@ -65,30 +67,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             if (!TryGetTouchPosition(out Vector2 touchPosition))
                 return;
-
-            if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
-            {
-                // Raycast hits are sorted by distance, so the first one
-                // will be the closest hit.
-                var hitPose = s_Hits[0].pose;
-
-                if (spawnedObject == null)
-                {
-                    spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-                    spawnedChild = Instantiate(brick, hitPose.position, hitPose.rotation);
-                    spawnedChild.GetComponent<Renderer>().material.color = brick.GetComponent<Brick>().color;
-                    spawnedChild.transform.parent = spawnedObject.transform;
-                    Brick newBrick = spawnedChild.GetComponent<Brick>();
-                    newBrick.addSnaps();
-                    List<Snap> newSnaps = newBrick.getSnaps();
-                    foreach(Snap s in newSnaps){
-                        wallSnaps.Add(s);
-                    }
-                    addBrick(wallSnaps[0]);
-
-                }
-                
-            }else if(spawnedObject != null){
+            if (spawnedObject != null){
                 Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hitObject;
                 if(Physics.Raycast(ray, out hitObject)){
@@ -97,6 +76,28 @@ namespace UnityEngine.XR.ARFoundation.Samples
                         addBrick(snapObject);
                     }
                 }
+            }
+            else if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
+            {
+                // Raycast hits are sorted by distance, so the first one
+                // will be the closest hit.
+                var hitPose = s_Hits[0].pose;
+
+                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                spawnedChild = Instantiate(brick, hitPose.position, hitPose.rotation);
+                spawnedChild.GetComponent<MeshRenderer>().material.SetColor("_Color", brick.GetComponent<Brick>().color);
+                spawnedChild.transform.parent = spawnedObject.transform;
+                Brick newBrick = spawnedChild.GetComponent<Brick>();
+                newBrick.addSnaps();
+                List<Snap> newSnaps = newBrick.getSnaps();
+                foreach(Snap s in newSnaps){
+                    wallSnaps.Add(s);
+                }
+                addBrick(wallSnaps[0]);
+                planeDetectionController.TogglePlaneDetection();
+
+                
+                
             }
         }
 
