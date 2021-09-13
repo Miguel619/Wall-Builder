@@ -8,6 +8,7 @@ public class Brick : MonoBehaviour
     public Color color;
     public Vector3 localScale;
     private Renderer brickRenderer;
+    private List<Snap> snaps = new List<Snap>();
     
     
 
@@ -34,11 +35,17 @@ public class Brick : MonoBehaviour
         GameObject topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3(0, .05f, 0);
+        snaps.Add(topSnap.GetComponent<Snap>());
         topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
+        snaps.Add(topSnap.GetComponent<Snap>());
         topSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
+        snaps.Add(topSnap.GetComponent<Snap>());
+    }
+    public List<Snap> getSnaps(){
+        return snaps;
     }
 }

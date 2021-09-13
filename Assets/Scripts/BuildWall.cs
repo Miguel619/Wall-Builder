@@ -20,7 +20,15 @@ namespace UnityEngine.XR.ARFoundation.Samples
         GameObject m_PlacedPrefab;
         [SerializeField]
         GameObject brick;
-
+        [SerializeField]
+        public List<Snap> wallSnaps = new List<Snap>();
+        [SerializeField]
+        private Color activeColor = Color.red;
+        [SerializeField]
+        private Color inactiveColor = Color.gray;
+        [SerializeField]
+        private Camera arCamera;
+        
         /// <summary>
         /// The prefab to instantiate on touch.
         /// </summary>
@@ -70,6 +78,12 @@ namespace UnityEngine.XR.ARFoundation.Samples
                     spawnedChild = Instantiate(brick, hitPose.position, hitPose.rotation);
                     spawnedChild.GetComponent<Renderer>().material.color = brick.GetComponent<Brick>().color;
                     spawnedChild.transform.parent = spawnedObject.transform;
+                    Brick newBrick = spawnedChild.GetComponent<Brick>();
+                    newBrick.addSnaps();
+                    List<Snap> newSnaps = newBrick.getSnaps();
+                    foreach(Snap s in newSnaps){
+                        wallSnaps.Add(s);
+                    }
 
                 }
                 else

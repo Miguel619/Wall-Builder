@@ -2834,6 +2834,10 @@ MonoBehaviour:
   m_PlacedPrefab: {fileID: 4454794848828269854, guid: ebf449a4596983c408f74b821e4a7f8d,
     type: 3}
   brick: {fileID: 1708164992}
+  wallSnaps: []
+  activeColor: {r: 1, g: 0, b: 0, a: 1}
+  inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  arCamera: {fileID: 282840813}
 --- !u!114 &1335839537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2848,7 +2852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1568414836858200, guid: f0e0be81472ff1243aa2afa27e5d0e61,
     type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &1335839538
 MonoBehaviour:
   m_ObjectHideFlags: 0
