@@ -19,7 +19,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [Tooltip("Instantiates this prefab on a plane at the touch location.")]
         GameObject m_PlacedPrefab;
         [SerializeField]
-        GameObject brick;
+        public GameObject brick;
         [SerializeField]
         public List<Snap> wallSnaps = new List<Snap>();
         [SerializeField]
@@ -83,10 +83,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
-                wallRotation = hitPose.rotation;
+                wallRotation = arCamera.transform.rotation;
                 spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, wallRotation);
                 spawnedChild = Instantiate(brick, hitPose.position, wallRotation);
-                spawnedChild.GetComponent<MeshRenderer>().material.SetColor("_Color", brick.GetComponent<Brick>().color);
+                spawnedChild.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
                 spawnedChild.transform.parent = spawnedObject.transform;
                 Brick newBrick = spawnedChild.GetComponent<Brick>();
                 newBrick.addSnaps(wallRotation);
@@ -94,7 +94,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 foreach(Snap s in newSnaps){
                     wallSnaps.Add(s);
                 }
-                addBrick(wallSnaps[0]);
                 planeDetectionController.TogglePlaneDetection();
 
                 
@@ -104,13 +103,9 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         void addBrick(Snap snapObject){
             foreach (Snap cur in wallSnaps){
-                MeshRenderer meshRen = cur.GetComponent<MeshRenderer>();
-                if(snapObject != cur){
-                    cur.isSelected = false;
-                    meshRen.material.color = inactiveColor;
-                }else{
-                    cur.isSelected = true;
-                    meshRen.material.color = activeColor;
+                if(snapObject == cur){
+                    Brick parentBrick = cur.GetComponentInParent<Brick>();
+                    parentBrick.addBrick(wallRotation);
                 }
             }
         }

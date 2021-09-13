@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class Snap : MonoBehaviour
 {
-    public bool isSelected { get;  set;}
+    public bool isTop = false;
+    public bool isRight = false;
+    public bool isLeft = false;
+
+    // public Brick parent;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+
 }

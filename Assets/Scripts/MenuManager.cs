@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.ARFoundation.Samples;
 
 public class MenuManager : MonoBehaviour
 {
@@ -80,6 +81,10 @@ public class MenuManager : MonoBehaviour
         if(scale == 5){
             previewBrick.setScale(new Vector3(.3f, .05f, .05f));
         }
+    }
+
+    public void snapWall(){
+        previewBrick.addBrick(previewBrick.transform.rotation);
     }
     
 }
