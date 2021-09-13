@@ -89,7 +89,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 spawnedChild.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
                 spawnedChild.transform.parent = spawnedObject.transform;
                 Brick newBrick = spawnedChild.GetComponent<Brick>();
-                newBrick.addSnaps(wallRotation);
+                newBrick.addSnaps();
                 List<Snap> newSnaps = newBrick.getSnaps();
                 foreach(Snap s in newSnaps){
                     wallSnaps.Add(s);
