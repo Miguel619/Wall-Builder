@@ -53,23 +53,23 @@ public class Brick : MonoBehaviour
         curSnap.GetComponent<Snap>().isLeft = true;
         snaps.Add(curSnap.GetComponent<Snap>());
     }
-    public void addBrick(Quaternion wallRotation){
+    public void addBrick(Quaternion wallRotation, Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
         GameObject topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3(0, .05f, 0);
-        topBrick.GetComponent<Brick>().setColor(this.color);
+        topBrick.GetComponent<Brick>().setColor(preColor);
         // right brick
         topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
-        topBrick.GetComponent<Brick>().setColor(this.color);
+        topBrick.GetComponent<Brick>().setColor(preColor);
         // left brick
         topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
-        topBrick.GetComponent<Brick>().setColor(this.color);
+        topBrick.GetComponent<Brick>().setColor(preColor);
     }
     public List<Snap> getSnaps(){
         return snaps;

@@ -83,8 +83,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void snapWall(){
-        previewBrick.addBrick(previewBrick.transform.rotation);
-    }
+    
     
 }

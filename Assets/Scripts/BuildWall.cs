@@ -27,7 +27,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [SerializeField]
         private Color inactiveColor = Color.gray;
         [SerializeField]
-        private Camera arCamera;
+        private ARSessionOrigin  origin;
         private PlaneDetectionController planeDetectionController;
         private Quaternion wallRotation;
         
@@ -69,7 +69,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             if (!TryGetTouchPosition(out Vector2 touchPosition))
                 return;
             if (spawnedObject != null){
-                Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                Ray ray = origin.camera.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hitObject;
                 if(Physics.Raycast(ray, out hitObject)){
                     Snap snapObject = hitObject.transform.GetComponent<Snap>();
@@ -83,7 +83,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
-                wallRotation = Quaternion.Euler(0, arCamera.transform.rotation.y, 0);
+                wallRotation = Quaternion.Euler(0, origin.camera.transform.rotation.eulerAngles.y, 0);
                 spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, wallRotation);
                 spawnedChild = Instantiate(brick, hitPose.position, wallRotation);
                 spawnedChild.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
@@ -105,7 +105,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             foreach (Snap cur in wallSnaps){
                 if(snapObject == cur){
                     Brick parentBrick = cur.GetComponentInParent<Brick>();
-                    parentBrick.addBrick(wallRotation);
+                    parentBrick.addBrick(wallRotation, brick.GetComponent<Brick>().color);
                 }
             }
         }
