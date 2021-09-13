@@ -44,7 +44,7 @@ public class Brick : MonoBehaviour
             curSnap = Instantiate(snap, brickPos, Quaternion.identity);
             curSnap.transform.parent = gameObject.transform;
             curSnap.transform.position += new Vector3(0, .05f, 0);
-            curSnap.transform.rotation = gameObject.transform.rotation;
+            curSnap.transform.localRotation = Quaternion.identity;
             curSnap.GetComponent<Snap>().isTop = true;
             snaps.Add(curSnap.GetComponent<Snap>());
         }
@@ -53,7 +53,7 @@ public class Brick : MonoBehaviour
             curSnap = Instantiate(snap, brickPos, Quaternion.identity);
             curSnap.transform.parent = gameObject.transform;
             curSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
-            curSnap.transform.rotation = gameObject.transform.rotation;
+            curSnap.transform.localRotation = Quaternion.identity;
             curSnap.GetComponent<Snap>().isRight = true;
             snaps.Add(curSnap.GetComponent<Snap>());
         }
@@ -62,25 +62,26 @@ public class Brick : MonoBehaviour
             curSnap = Instantiate(snap, brickPos, Quaternion.identity);
             curSnap.transform.parent = gameObject.transform;
             curSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
-            curSnap.transform.rotation = gameObject.transform.rotation;
+            curSnap.transform.localRotation = Quaternion.identity;
             curSnap.GetComponent<Snap>().isLeft = true;
             snaps.Add(curSnap.GetComponent<Snap>());
         }
         
     }
-    public void addTopBrick(Quaternion wallRotation, Color preColor){
+    public Brick addTopBrick(Quaternion wallRotation, Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
         GameObject topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
+        topBrick.transform.rotation = Quaternion.LookRotation(wallRotation.eulerAngles, transform.up);
         topBrick.transform.position += new Vector3(0, .05f, 0);
-        topBrick.transform.rotation = gameObject.transform.rotation;
         topBrick.GetComponent<Brick>().setColor(preColor);
         topBrick.GetComponent<Brick>().bottom = this;
         this.hasTop = true;
         topBrick.GetComponent<Brick>().addSnaps();
+        return topBrick.GetComponent<Brick>();
     }
-    public void addRightBrick(Quaternion wallRotation, Color preColor){
+    public Brick addRightBrick(Quaternion wallRotation, Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         
         GameObject rightBrick = Instantiate(preBrick, brickPos, wallRotation);
@@ -91,8 +92,9 @@ public class Brick : MonoBehaviour
         rightBrick.GetComponent<Brick>().hasLeft = true;
         this.hasRight = true;
         rightBrick.GetComponent<Brick>().addSnaps();
+        return rightBrick.GetComponent<Brick>();
     }
-    public void addLeftBrick(Quaternion wallRotation, Color preColor){
+    public Brick addLeftBrick(Quaternion wallRotation, Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
         GameObject leftBrick = Instantiate(preBrick, brickPos, wallRotation);
@@ -102,6 +104,7 @@ public class Brick : MonoBehaviour
         leftBrick.GetComponent<Brick>().hasRight = true;
         this.hasLeft = true;
         leftBrick.GetComponent<Brick>().addSnaps();
+        return leftBrick.GetComponent<Brick>();
     }
     public List<Snap> getSnaps(){
         return snaps;
