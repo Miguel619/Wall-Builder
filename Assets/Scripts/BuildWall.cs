@@ -83,7 +83,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
-                wallRotation = arCamera.transform.rotation;
+                wallRotation = Quaternion.Euler(0, arCamera.transform.rotation.y, 0);
                 spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, wallRotation);
                 spawnedChild = Instantiate(brick, hitPose.position, wallRotation);
                 spawnedChild.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
