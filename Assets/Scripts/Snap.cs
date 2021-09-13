@@ -10,9 +10,6 @@ public class Snap : MonoBehaviour
 
     // public Brick parent;
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Destroy(gameObject);
-    }
+    
 
 }

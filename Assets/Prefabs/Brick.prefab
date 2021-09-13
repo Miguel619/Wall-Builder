@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 313259718783561769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,3 +111,9 @@ MonoBehaviour:
   snap: {fileID: 6486982598503916270, guid: 22a1b02228022d045846dfc2a8943cff, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}
   localScale: {x: 0, y: 0, z: 0}
+  bottom: {fileID: 0}
+  right: {fileID: 0}
+  left: {fileID: 0}
+  hasRight: 0
+  hasLeft: 0
+  hasTop: 0

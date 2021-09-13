@@ -67,22 +67,24 @@ public class MenuManager : MonoBehaviour
     }
     public void scaleSelector(int scale){
         if(scale == 1){
-            previewBrick.setScale(new Vector3(.1f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .05f, .05f));
         }
         if(scale == 2){
-            previewBrick.setScale(new Vector3(.12f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .075f, .05f));
         }
         if(scale == 3){
-            previewBrick.setScale(new Vector3(.15f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .1f, .05f));
         }
         if(scale == 4){
-            previewBrick.setScale(new Vector3(.17f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .15f, .05f));
         }
         if(scale == 5){
-            previewBrick.setScale(new Vector3(.2f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .2f, .05f));
         }
     }
 
-    
+    public void addSnap(){
+        previewBrick.addRightBrick(Color.red);
+    }
     
 }
