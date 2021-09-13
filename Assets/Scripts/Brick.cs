@@ -35,41 +35,47 @@ public class Brick : MonoBehaviour
     public void addSnaps(Quaternion wallRotation){
         Vector3 brickPos = gameObject.transform.position;
         // top snap
-        GameObject curSnap = Instantiate(snap, brickPos, wallRotation);
+        GameObject curSnap = Instantiate(snap, brickPos, Quaternion.identity);
         curSnap.transform.parent = gameObject.transform;
-        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3(0, .05f, 0);
         curSnap.GetComponent<Snap>().isTop = true;
         snaps.Add(curSnap.GetComponent<Snap>());
         // right snap
-        curSnap = Instantiate(snap, brickPos, wallRotation);
+        curSnap = Instantiate(snap, brickPos, Quaternion.identity);
         curSnap.transform.parent = gameObject.transform;
-        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
         curSnap.GetComponent<Snap>().isRight = true;
         snaps.Add(curSnap.GetComponent<Snap>());
         // left snap
-        curSnap = Instantiate(snap, brickPos, wallRotation);
+        curSnap = Instantiate(snap, brickPos, Quaternion.identity);
         curSnap.transform.parent = gameObject.transform;
-        curSnap.transform.rotation = gameObject.transform.rotation;
         curSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
         curSnap.GetComponent<Snap>().isLeft = true;
         snaps.Add(curSnap.GetComponent<Snap>());
     }
-    public void addBrick(Quaternion wallRotation, Color preColor){
+    public void addTopBrick(Quaternion wallRotation, Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
         GameObject topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3(0, .05f, 0);
         topBrick.GetComponent<Brick>().setColor(preColor);
-        // right brick
-        topBrick = Instantiate(preBrick, brickPos, wallRotation);
+        
+    }
+    public void addRightBrick(Quaternion wallRotation, Color preColor){
+        Vector3 brickPos = gameObject.transform.position;
+        
+        GameObject topBrick = Instantiate(preBrick, brickPos, wallRotation);
+       
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
         topBrick.GetComponent<Brick>().setColor(preColor);
-        // left brick
-        topBrick = Instantiate(preBrick, brickPos, wallRotation);
+        
+    }
+    public void addLeftBrick(Quaternion wallRotation, Color preColor){
+        Vector3 brickPos = gameObject.transform.position;
+        // top brick 
+        GameObject topBrick = Instantiate(preBrick, brickPos, wallRotation);
         topBrick.transform.parent = gameObject.transform.parent;
         topBrick.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
         topBrick.GetComponent<Brick>().setColor(preColor);

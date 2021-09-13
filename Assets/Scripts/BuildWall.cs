@@ -105,7 +105,14 @@ namespace UnityEngine.XR.ARFoundation.Samples
             foreach (Snap cur in wallSnaps){
                 if(snapObject == cur){
                     Brick parentBrick = cur.GetComponentInParent<Brick>();
-                    parentBrick.addBrick(wallRotation, brick.GetComponent<Brick>().color);
+                    if(cur.isTop){
+                        parentBrick.addTopBrick(wallRotation, brick.GetComponent<Brick>().color);
+                    }else if(cur.isRight){
+                        parentBrick.addRightBrick(wallRotation, brick.GetComponent<Brick>().color);
+                    }else if(cur.isLeft){
+                        parentBrick.addLeftBrick(wallRotation, brick.GetComponent<Brick>().color);
+                    }
+                    
                 }
             }
         }
