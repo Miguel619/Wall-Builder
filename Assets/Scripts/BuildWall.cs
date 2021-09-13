@@ -84,12 +84,31 @@ namespace UnityEngine.XR.ARFoundation.Samples
                     foreach(Snap s in newSnaps){
                         wallSnaps.Add(s);
                     }
+                    addBrick(wallSnaps[0]);
 
                 }
-                else
-                {
-                    // if already placed
-                    return;
+                
+            }else if(spawnedObject != null){
+                Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hitObject;
+                if(Physics.Raycast(ray, out hitObject)){
+                    Snap snapObject = hitObject.transform.GetComponent<Snap>();
+                    if(snapObject != null){
+                        addBrick(snapObject);
+                    }
+                }
+            }
+        }
+
+        void addBrick(Snap snapObject){
+            foreach (Snap cur in wallSnaps){
+                MeshRenderer meshRen = cur.GetComponent<MeshRenderer>();
+                if(snapObject != cur){
+                    cur.isSelected = false;
+                    meshRen.material.color = inactiveColor;
+                }else{
+                    cur.isSelected = true;
+                    meshRen.material.color = activeColor;
                 }
             }
         }
