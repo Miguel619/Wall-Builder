@@ -95,7 +95,9 @@ public class Brick : MonoBehaviour
         GameObject rightBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
        
         rightBrick.transform.parent = gameObject.transform.parent;
-        rightBrick.transform.localPosition  += new Vector3(.05f, 0, 0);
+        
+        float difPos =  rightBrick.transform.localScale.y - gameObject.transform.localScale.y;
+        rightBrick.transform.localPosition  += new Vector3(.05f, difPos/2, 0);
         rightBrick.GetComponent<Brick>().setColor(preColor);
         rightBrick.GetComponent<Brick>().hasLeft = true;
         this.hasRight = true;
@@ -108,7 +110,9 @@ public class Brick : MonoBehaviour
         // top brick 
         GameObject leftBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
         leftBrick.transform.parent = gameObject.transform.parent;
-        leftBrick.transform.localPosition  += new Vector3(-.05f, 0, 0);
+        leftBrick.GetComponent<Brick>().setScale(new Vector3(.05f, .075f, .05f));
+        float difPos =  leftBrick.transform.localScale.y - gameObject.transform.localScale.y;
+        leftBrick.transform.localPosition  += new Vector3(-.05f, difPos/2, 0);
         leftBrick.GetComponent<Brick>().setColor(preColor);
         leftBrick.GetComponent<Brick>().hasRight = true;
         this.hasLeft = true;

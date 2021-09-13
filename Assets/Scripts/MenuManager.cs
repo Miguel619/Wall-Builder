@@ -84,7 +84,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void addSnap(){
-        previewBrick.addRightBrick(Color.red);
+        previewBrick.addLeftBrick(Color.red);
     }
     
 }
