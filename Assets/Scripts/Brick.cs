@@ -41,34 +41,56 @@ public class Brick : MonoBehaviour
         GameObject curSnap;
         // top snap
         if(this.hasTop == false){
-            curSnap = Instantiate(snap, brickPos, Quaternion.identity);
+            curSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
             curSnap.transform.parent = gameObject.transform;
-            curSnap.transform.localPosition  += new Vector3(0, .05f, 0);
+            curSnap.transform.localPosition  += new Vector3(0, 1, 0);
             curSnap.GetComponent<Snap>().isTop = true;
             snaps.Add(curSnap.GetComponent<Snap>());
         }
         if(this.hasRight == false){
             // right snap
-            curSnap = Instantiate(snap, brickPos, Quaternion.identity);
-            curSnap.transform.parent = gameObject.transform;
-            curSnap.transform.localPosition  += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
-            curSnap.GetComponent<Snap>().isRight = true;
-            snaps.Add(curSnap.GetComponent<Snap>());
+            if(this.bottom != null){
+                if(this.bottom.hasRight){
+                    curSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+                    curSnap.transform.parent = gameObject.transform;
+                    curSnap.transform.localPosition  += new Vector3((gameObject.transform.localScale.x / 2) + .6f, 0, 0);
+                    curSnap.GetComponent<Snap>().isRight = true;
+                    snaps.Add(curSnap.GetComponent<Snap>());
+                }
+            }else{
+                curSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+                curSnap.transform.parent = gameObject.transform;
+                curSnap.transform.localPosition  += new Vector3((gameObject.transform.localScale.x / 2) + .6f, 0, 0);
+                curSnap.GetComponent<Snap>().isRight = true;
+                snaps.Add(curSnap.GetComponent<Snap>());
+            }
+            
         }
         if(this.hasLeft == false){
             // left snap
-            curSnap = Instantiate(snap, brickPos, Quaternion.identity);
-            curSnap.transform.parent = gameObject.transform;
-            curSnap.transform.localPosition  += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
-            curSnap.GetComponent<Snap>().isLeft = true;
-            snaps.Add(curSnap.GetComponent<Snap>());
+            if(this.bottom != null){
+                if(this.bottom.hasLeft){
+                    curSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+                    curSnap.transform.parent = gameObject.transform;
+                    curSnap.transform.localPosition  += new Vector3(-(gameObject.transform.localScale.x / 2) - .6f, 0, 0);
+                    curSnap.GetComponent<Snap>().isLeft = true;
+                    snaps.Add(curSnap.GetComponent<Snap>());
+                }
+            }else{
+                curSnap = Instantiate(snap, brickPos, gameObject.transform.rotation);
+                curSnap.transform.parent = gameObject.transform;
+                curSnap.transform.localPosition  += new Vector3(-(gameObject.transform.localScale.x / 2) - .6f, 0, 0);
+                curSnap.GetComponent<Snap>().isLeft = true;
+                snaps.Add(curSnap.GetComponent<Snap>());
+            }
+            
         }
         
     }
     public Brick addTopBrick(Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
-        GameObject topBrick = Instantiate(preBrick, brickPos, Quaternion.identity);
+        GameObject topBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
         topBrick.transform.parent = gameObject.transform.parent;
         
         topBrick.transform.localPosition  += new Vector3(0, .05f, 0);
@@ -81,10 +103,10 @@ public class Brick : MonoBehaviour
     public Brick addRightBrick(Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         
-        GameObject rightBrick = Instantiate(preBrick, brickPos, Quaternion.identity);
+        GameObject rightBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
        
         rightBrick.transform.parent = gameObject.transform.parent;
-        rightBrick.transform.localPosition  += new Vector3((rightBrick.transform.localScale.x / 2) + .05f, 0, 0);
+        rightBrick.transform.localPosition  += new Vector3((rightBrick.transform.localScale.x / 2) + (gameObject.transform.localScale.x / 2), 0, 0);
         rightBrick.GetComponent<Brick>().setColor(preColor);
         rightBrick.GetComponent<Brick>().hasLeft = true;
         this.hasRight = true;
@@ -94,9 +116,9 @@ public class Brick : MonoBehaviour
     public Brick addLeftBrick(Color preColor){
         Vector3 brickPos = gameObject.transform.position;
         // top brick 
-        GameObject leftBrick = Instantiate(preBrick, brickPos, Quaternion.identity);
+        GameObject leftBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
         leftBrick.transform.parent = gameObject.transform.parent;
-        leftBrick.transform.localPosition  += new Vector3(-(leftBrick.transform.localScale.x / 2) - .05f, 0, 0);
+        leftBrick.transform.localPosition  += new Vector3(-(leftBrick.transform.localScale.x / 2) - (gameObject.transform.localScale.x / 2), 0, 0);
         leftBrick.GetComponent<Brick>().setColor(preColor);
         leftBrick.GetComponent<Brick>().hasRight = true;
         this.hasLeft = true;
