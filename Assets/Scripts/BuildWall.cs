@@ -29,6 +29,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [SerializeField]
         private Camera arCamera;
         private PlaneDetectionController planeDetectionController;
+        private Quaternion wallRotation;
         
         /// <summary>
         /// The prefab to instantiate on touch.
@@ -82,13 +83,13 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
-
-                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-                spawnedChild = Instantiate(brick, hitPose.position, hitPose.rotation);
+                wallRotation = hitPose.rotation;
+                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, wallRotation);
+                spawnedChild = Instantiate(brick, hitPose.position, wallRotation);
                 spawnedChild.GetComponent<MeshRenderer>().material.SetColor("_Color", brick.GetComponent<Brick>().color);
                 spawnedChild.transform.parent = spawnedObject.transform;
                 Brick newBrick = spawnedChild.GetComponent<Brick>();
-                newBrick.addSnaps();
+                newBrick.addSnaps(wallRotation);
                 List<Snap> newSnaps = newBrick.getSnaps();
                 foreach(Snap s in newSnaps){
                     wallSnaps.Add(s);

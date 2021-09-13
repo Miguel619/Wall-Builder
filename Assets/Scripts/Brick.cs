@@ -30,17 +30,17 @@ public class Brick : MonoBehaviour
         this.localScale = scale;
         gameObject.transform.localScale = scale;
     }
-    public void addSnaps(){
+    public void addSnaps(Quaternion wallRotation){
         Vector3 brickPos = gameObject.transform.position;
-        GameObject topSnap = Instantiate(snap, brickPos, Quaternion.identity);
+        GameObject topSnap = Instantiate(snap, brickPos, wallRotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3(0, .05f, 0);
         snaps.Add(topSnap.GetComponent<Snap>());
-        topSnap = Instantiate(snap, brickPos, Quaternion.identity);
+        topSnap = Instantiate(snap, brickPos, wallRotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3((gameObject.transform.localScale.x / 2) + .05f, 0, 0);
         snaps.Add(topSnap.GetComponent<Snap>());
-        topSnap = Instantiate(snap, brickPos, Quaternion.identity);
+        topSnap = Instantiate(snap, brickPos, wallRotation);
         topSnap.transform.parent = gameObject.transform;
         topSnap.transform.position += new Vector3(-(gameObject.transform.localScale.x / 2) - .05f, 0, 0);
         snaps.Add(topSnap.GetComponent<Snap>());
