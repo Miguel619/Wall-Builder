@@ -70,16 +70,16 @@ public class MenuManager : MonoBehaviour
             previewBrick.setScale(new Vector3(.1f, .05f, .05f));
         }
         if(scale == 2){
-            previewBrick.setScale(new Vector3(.15f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.12f, .05f, .05f));
         }
         if(scale == 3){
-            previewBrick.setScale(new Vector3(.2f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.15f, .05f, .05f));
         }
         if(scale == 4){
-            previewBrick.setScale(new Vector3(.25f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.17f, .05f, .05f));
         }
         if(scale == 5){
-            previewBrick.setScale(new Vector3(.3f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.2f, .05f, .05f));
         }
     }
 
