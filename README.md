@@ -6,7 +6,7 @@ This is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 ![Alt Text](https://media.giphy.com/media/8BDC69mfp0ZJ381teR/giphy-downsized-large.gif?cid=790b76113f0d6e9e7464722440747743d25050c083b23aff&rid=giphy-downsized-large.gif&ct=g)
 
 
-## Wall Build
+## Description
 
 This app includes options for changing the size and color of your brick. A preview of your brick is displayed in front of your display.
 
