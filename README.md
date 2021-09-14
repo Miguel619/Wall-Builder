@@ -28,6 +28,9 @@ Once you have place the initial brick you are able to save your brick into a JSO
 4. Build the App onto Xcode and Run application.
 
 # Wall Builder Scripts
+
+All custom added scripts
+
 | Class | Description |
 | ------ | ------- |
 | Brick  | This class is used to store the key of every brick such as color, scale, id, and neighbors. It contains essential methods for bricks such as addSnaps which adds new snap points as appropriate and addBrick functions that instantiate new bricks where snap points are clicked. |
