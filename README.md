@@ -6,17 +6,6 @@ This is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 ![Alt Text](https://media.giphy.com/media/8BDC69mfp0ZJ381teR/giphy-downsized-large.gif?cid=790b76113f0d6e9e7464722440747743d25050c083b23aff&rid=giphy-downsized-large.gif&ct=g)
 
 
-## Instructions for running Wall Builder
-
-1. Clone the latest version of the github repo.
-
-2. Open Unity, and load the project at the root of the *Wall-Builder* repository.
-
-3. Open the WallBuilder scene.
-
-4. Build the App onto Xcode and Run application.
-
-
 ## Wall Build
 
 This app includes options for changing the size and color of your brick. A preview of your brick is displayed in front of your display.
@@ -28,6 +17,15 @@ Once you have place the initial brick you are able to save your brick into a JSO
 
 ![Alt Text](https://media.giphy.com/media/i1UjdVcwcLBh8Z1dOL/giphy-downsized-large.gif?cid=790b76113ffdc8338a6662a0d4674505b39083c2f8437873&rid=giphy-downsized-large.gif&ct=g)![Alt Text](https://media.giphy.com/media/fE12z05tDON5LDa2f6/giphy-downsized-large.gif?cid=790b76118074c7c1f26cd8035635cd88af2d7266eb94c777&rid=giphy-downsized-large.gif&ct=g)
 
+## How to build and run
+
+1. Clone the latest version of the github repo.
+
+2. Open Unity, and load the project at the root of the *Wall-Builder* repository.
+
+3. Open the WallBuilder scene.
+
+4. Build the App onto Xcode and Run application.
 
 # Wall Builder Scripts
 | Class | Description |
@@ -41,6 +39,6 @@ Once you have place the initial brick you are able to save your brick into a JSO
 | Snap | This class helps determine where we will be spawning our brick when the snap point is tapped. |
 | Wall | This class keeps a list of all serializable bricks and has a method for adding bricks using it's constructor. |
 
-# Bugs left to address
+# Bugs 
 
 Snap points inside bricks.
