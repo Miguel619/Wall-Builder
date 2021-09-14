@@ -22,8 +22,8 @@ This app includes options for changing the size and color of your brick. A previ
 When a plane is detected, you can tap on the detected plane to place a brick on it. Once the initial brick is placed, you are able to add different bricks on top and on the sides of the placed bricks.
 
 Once you have place the initial brick you are able to save your brick into a JSON file by pressing the save button.
-# Wall Builder Assests
-| File | Description |
+# Wall Builder Scripts
+| Class | Description |
 | ------ | ------- |
 | Brick  | This class is used to store the key of every brick such as color, scale, id, and neighbors. It contains essential methods for bricks such as addSnaps which adds new snap points as appropriate and addBrick functions that instantiate new bricks where snap points are clicked. |
 | BrickHandler | This class stores serializable data used to convert the brick data into a JSON. |
