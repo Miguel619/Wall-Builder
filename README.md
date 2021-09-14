@@ -41,3 +41,6 @@ Once you have place the initial brick you are able to save your brick into a JSO
 | Snap | This class helps determine where we will be spawning our brick when the snap point is tapped. |
 | Wall | This class keeps a list of all serializable bricks and has a method for adding bricks using it's constructor. |
 
+# Bugs left to address
+
+Snap points inside bricks.
