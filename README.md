@@ -1,7 +1,8 @@
 # Wall Builder
 
 This is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/manual/index.html).
-**ONLY TESTED ON IOS!**
+
+Using Unity 2020.3.18f1 **ONLY TESTED ON IOS!**
 
 ![Alt Text](https://media.giphy.com/media/8BDC69mfp0ZJ381teR/giphy-downsized-large.gif?cid=790b76113f0d6e9e7464722440747743d25050c083b23aff&rid=giphy-downsized-large.gif&ct=g)
 
