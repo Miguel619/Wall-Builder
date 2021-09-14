@@ -8,11 +8,11 @@ ONLY TESTED ON IOS!
 
 1. Download the latest version of Unity 2020.3 or later.
 
-2. Open Unity, and load the project at the root of the *arfoundation-samples* repository.
+2. Open Unity, and load the project at the root of the *Wall-Builder* repository.
 
-3. Open your choice of sample scene.
+3. Open the WallBuilder scene.
 
-4. See the [AR Foundation Documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/manual/index.html) for usage instructions and more information.
+4. Information for using coming soon.
 
 
 ## Wall Build
