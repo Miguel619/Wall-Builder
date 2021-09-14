@@ -4,7 +4,7 @@ THis is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 **ONLY TESTED ON IOS!**
 
 
-## Instructions for opening project
+## Instructions for running Wall Builder
 
 1. Download the latest version of Unity 2020.3 or later.
 
