@@ -29,6 +29,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         private PlaneDetectionController planeDetectionController;
         private Quaternion wallRotation;
         private List<Brick> storedBricks = new List<Brick>();
+        public GameObject saveButton;
         private int index = 0;
         
         /// <summary>
