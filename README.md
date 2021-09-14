@@ -17,14 +17,16 @@ THis is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 
 ## Wall Build
 
-This is a good starting sample that enables point cloud visualization and plane detection. There are buttons on screen that let you pause, resume, reset, and reload the ARSession.
+This app includes options for changing the size and color of your brick. A preview of your brick is displayed in front of your display.
 
-When a plane is detected, you can tap on the detected plane to place a cube on it. This uses the `ARRaycastManager` to perform a raycast against the plane.
+When a plane is detected, you can tap on the detected plane to place a brick on it. Once the initial brick is placed, you are able to add different bricks on top and on the sides of the placed bricks.
+
+Once you have place the initial brick you are able to save your brick into a JSON file by pressing the save button.
 
 | Action | Meaning |
 | ------ | ------- |
-| Pause  | Pauses the ARSession, meaning device tracking and trackable detection (e.g., plane detection) is temporarily paused. While paused, the ARSession does not consume CPU resources. |
-| Resume | Resumes a paused ARSession. The device will attempt to relocalize and previously detected objects may shift around as tracking is reestablished. |
-| Reset | Clears all detected trackables and effectively begins a new ARSession. |
-| Reload | Completely destroys the ARSession GameObject and re-instantiates it. This simulates the behavior you might experience during scene switching. |
+| Size  | Change the size of the brick. You have up to five options. |
+| Color | Change the color of the brick. You have up to five options. |
+| Save | Save your brick into a JSON file. In future updates you will be able to load your saved wall. |
+| Load | *Coming soon*. |
 
