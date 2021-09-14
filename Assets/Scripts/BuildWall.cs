@@ -20,7 +20,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
         private Wall wallController;
         private PlaneDetectionController planeDetectionController;
         private Quaternion wallRotation;
-        public GameObject saveButton;
         private List<Brick> storedBricks = new List<Brick>();
         private int index = 0;
         
@@ -31,7 +30,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             m_RaycastManager = GetComponent<ARRaycastManager>();
             planeDetectionController = GetComponent<PlaneDetectionController>();
-            saveButton.SetActive(false);
             
         }
         
