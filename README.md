@@ -12,7 +12,7 @@ THis is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 
 3. Open the WallBuilder scene.
 
-4. Information for using coming soon.
+4. Instructions for use coming soon.
 
 
 ## Wall Build
