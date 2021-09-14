@@ -29,7 +29,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
         private PlaneDetectionController planeDetectionController;
         private Quaternion wallRotation;
         private List<Brick> storedBricks = new List<Brick>();
-        public GameObject saveButton;
+        
+        
         private int index = 0;
         
         /// <summary>
@@ -177,8 +178,11 @@ namespace UnityEngine.XR.ARFoundation.Samples
         }
 
         public void saveWall(){
-            wallController.AddBrickToList(storedBricks[index].color, storedBricks[index].scale, "null");
-            FileHandler.SaveToJSON<BrickHandler>(wallController.placedBricks, "SavedWall");
+            if(spawnedWall != null){
+                wallController.AddBrickToList(storedBricks[index].color, storedBricks[index].scale, "null");
+                FileHandler.SaveToJSON<BrickHandler>(wallController.placedBricks, "SavedWall");
+            }
+            
         }
         
         static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
