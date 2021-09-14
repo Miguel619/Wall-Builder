@@ -6,13 +6,13 @@ THis is a simple wall builder AR app built on [*AR Foundation 4.2*](https://docs
 
 ## Instructions for running Wall Builder
 
-1. Download the latest version of Unity 2020.3 or later.
+1. Clone the latest version of the github repo.
 
 2. Open Unity, and load the project at the root of the *Wall-Builder* repository.
 
 3. Open the WallBuilder scene.
 
-4. Instructions for use coming soon.
+4. Build the App onto Xcode and Run application.
 
 
 ## Wall Build
