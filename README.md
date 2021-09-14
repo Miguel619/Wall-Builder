@@ -1,7 +1,7 @@
 # Wall Builder
 
 Built on [*AR Foundation 4.2*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/manual/index.html).
-ONLY TESTED ON IOS!
+**ONLY TESTED ON IOS!**
 
 
 ## Instructions for opening project
