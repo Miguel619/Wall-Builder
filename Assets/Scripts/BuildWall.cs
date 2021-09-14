@@ -53,36 +53,36 @@ namespace UnityEngine.XR.ARFoundation.Samples
             planeDetectionController = GetComponent<PlaneDetectionController>();
             
         }
-        private void Start() {
-            // For testing JSON
+        // private void Start() {
+        //     // For testing JSON
             
-            wallRotation = Quaternion.Euler(0, origin.camera.transform.rotation.eulerAngles.y, 0);
-            spawnedWall = Instantiate(m_PlacedPrefab, gameObject.transform.position, wallRotation);
-            wallController = spawnedWall.GetComponent<Wall>();
-            spawnedBrick = Instantiate(brick, gameObject.transform.position, wallRotation);
-            spawnedBrick.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
-            spawnedBrick.transform.parent = spawnedWall.transform;
-            Brick newBrick = spawnedBrick.GetComponent<Brick>();
-            newBrick.scale = brick.GetComponent<Brick>().scale;
-            newBrick.addSnaps();
-            List<Snap> newSnaps = newBrick.getSnaps();
-            foreach(Snap s in newSnaps){
-                wallSnaps.Add(s);
-            }
-            planeDetectionController.TogglePlaneDetection();
-            // add brick to wall
-            storedBricks.Add(newBrick);
+        //     wallRotation = Quaternion.Euler(0, origin.camera.transform.rotation.eulerAngles.y, 0);
+        //     spawnedWall = Instantiate(m_PlacedPrefab, gameObject.transform.position, wallRotation);
+        //     wallController = spawnedWall.GetComponent<Wall>();
+        //     spawnedBrick = Instantiate(brick, gameObject.transform.position, wallRotation);
+        //     spawnedBrick.GetComponent<Brick>().setColor(brick.GetComponent<Brick>().color);
+        //     spawnedBrick.transform.parent = spawnedWall.transform;
+        //     Brick newBrick = spawnedBrick.GetComponent<Brick>();
+        //     newBrick.scale = brick.GetComponent<Brick>().scale;
+        //     newBrick.addSnaps();
+        //     List<Snap> newSnaps = newBrick.getSnaps();
+        //     foreach(Snap s in newSnaps){
+        //         wallSnaps.Add(s);
+        //     }
+        //     planeDetectionController.TogglePlaneDetection();
+        //     // add brick to wall
+        //     storedBricks.Add(newBrick);
 
-            Brick addedBrick = newBrick.addTopBrick(brick.GetComponent<Brick>().color);
-            List<Snap> ns = addedBrick.getSnaps();
-            foreach(Snap s in ns){
-                wallSnaps.Add(s);
-            }
-            // add brick to wall
-            storedBricks.Add(addedBrick);
-            wallController.AddBrickToList(storedBricks[index].color, storedBricks[index].scale, "up");
-            index++;
-        }
+        //     Brick addedBrick = newBrick.addTopBrick(brick.GetComponent<Brick>().color);
+        //     List<Snap> ns = addedBrick.getSnaps();
+        //     foreach(Snap s in ns){
+        //         wallSnaps.Add(s);
+        //     }
+        //     // add brick to wall
+        //     storedBricks.Add(addedBrick);
+        //     wallController.AddBrickToList(storedBricks[index].color, storedBricks[index].scale, "up");
+        //     index++;
+        // }
         bool TryGetTouchPosition(out Vector2 touchPosition)
         {
             if (Input.touchCount > 0)
