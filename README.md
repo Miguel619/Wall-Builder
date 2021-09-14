@@ -30,4 +30,4 @@ Once you have place the initial brick you are able to save your brick into a JSO
 | Save | Save your brick into a JSON file. In future updates you will be able to load your saved wall. |
 | Load | *Coming soon*. |
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://media.giphy.com/media/i1UjdVcwcLBh8Z1dOL/giphy.gif)
