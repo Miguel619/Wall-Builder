@@ -51,7 +51,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
         {
             m_RaycastManager = GetComponent<ARRaycastManager>();
             planeDetectionController = GetComponent<PlaneDetectionController>();
-            saveButton.SetActive(false);
             
         }
         // private void Start() {
@@ -131,7 +130,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 planeDetectionController.TogglePlaneDetection();
                 // add brick to wall
                 storedBricks.Add(newBrick);
-                saveButton.SetActive(true);
                 
                 
             }
