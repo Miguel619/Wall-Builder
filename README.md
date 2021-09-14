@@ -29,3 +29,5 @@ Once you have place the initial brick you are able to save your brick into a JSO
 | Color | Change the color of the brick. You have up to five options. |
 | Save | Save your brick into a JSON file. In future updates you will be able to load your saved wall. |
 | Load | *Coming soon*. |
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
