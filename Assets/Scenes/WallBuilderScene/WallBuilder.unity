@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4906156af2370774892915a79477d786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 4454794848828269854, guid: ebf449a4596983c408f74b821e4a7f8d,
+  m_wallPrefab: {fileID: 4454794848828269854, guid: ebf449a4596983c408f74b821e4a7f8d,
     type: 3}
   brick: {fileID: 1708164992}
   wallSnaps: []
