@@ -30,6 +30,6 @@ Once you have place the initial brick you are able to save your brick into a JSO
 | Save | Save your brick into a JSON file. In future updates you will be able to load your saved wall. |
 | Load | *Coming soon*. |
 
-![Alt Text](https://media.giphy.com/media/i1UjdVcwcLBh8Z1dOL/giphy-downsized-large.gif?cid=790b76113ffdc8338a6662a0d4674505b39083c2f8437873&rid=giphy-downsized-large.gif&ct=g)![Alt Text](https://media.giphy.com/media/i1UjdVcwcLBh8Z1dOL/giphy-downsized-large.gif?cid=790b76113ffdc8338a6662a0d4674505b39083c2f8437873&rid=giphy-downsized-large.gif&ct=g)
+![Alt Text](https://media.giphy.com/media/i1UjdVcwcLBh8Z1dOL/giphy-downsized-large.gif?cid=790b76113ffdc8338a6662a0d4674505b39083c2f8437873&rid=giphy-downsized-large.gif&ct=g)![Alt Text](https://media.giphy.com/media/fE12z05tDON5LDa2f6/giphy-downsized-large.gif?cid=790b76118074c7c1f26cd8035635cd88af2d7266eb94c777&rid=giphy-downsized-large.gif&ct=g)
 ![Alt Text](https://media.giphy.com/media/8BDC69mfp0ZJ381teR/giphy-downsized-large.gif?cid=790b76113f0d6e9e7464722440747743d25050c083b23aff&rid=giphy-downsized-large.gif&ct=g)
 
