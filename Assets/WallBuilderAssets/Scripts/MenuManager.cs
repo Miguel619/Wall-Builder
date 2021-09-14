@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     private List<Panel> panelHistory = new List<Panel>();
     [SerializeField]
     BuildWall controller;
-
+    // Navigation
     private void Start(){
         SetupPanels();
     }
@@ -50,6 +50,8 @@ public class MenuManager : MonoBehaviour
     public void sceneTransition(string newScene){ 
         SceneManager.LoadScene(newScene);
     }
+
+    // Brick features
     public void colorPicker(string color){
         if(color == "Red"){
             previewBrick.setColor(Color.red);

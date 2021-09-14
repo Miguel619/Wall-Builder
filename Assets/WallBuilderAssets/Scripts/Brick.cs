@@ -6,17 +6,20 @@ using UnityEngine.XR.ARFoundation.Samples;
 
 public class Brick : MonoBehaviour
 {
-    public GameObject snap;
-    public Color color;
+    // Brick data variables
+    public int id;
     public int scale = 1;
+    public Color color;
     public Vector3 localScale;
     private Renderer brickRenderer;
-    public int id;
-
+    // Reference to preview brick
+    private GameObject preBrick;
+    
+    // Snap point data
+    public GameObject snap;
     private List<Snap> snaps = new List<Snap>();
     
-    private GameObject preBrick;
-    // store surrounding bricks
+    // Surrounding bricks
     public Brick bottom = null;
     public Brick right = null;
     public Brick left = null;
@@ -37,16 +40,7 @@ public class Brick : MonoBehaviour
         localScale = gameObject.transform.localScale;
     }
 
-    public void setColor(Color color){
-        this.color = color;
-        brickRenderer.material.color = color;
-    }
-
-    public void setScale(Vector3 scale, int numScale){
-        this.localScale = scale;
-        gameObject.transform.localScale = scale;
-        this.scale = numScale;
-    }
+    
     // for adding snap points to bricks
     public void addSnaps(){
         // we will use the position of the brick to place snap points
@@ -81,50 +75,73 @@ public class Brick : MonoBehaviour
         }
         
     }
+
+    //                  [Adding Bricks]
     public Brick addTopBrick(Color preColor){
-        // use this.brick's position  to place the next brick
-        Vector3 brickPos = gameObject.transform.position;
-        GameObject topBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
-        // make the brick a child of the wall
-        topBrick.transform.parent = gameObject.transform.parent;
+        GameObject topBrick = createNewBrick(preColor);
         // take into consideration differences in scale
         float difPos =  topBrick.transform.localScale.y - gameObject.transform.localScale.y;
         topBrick.transform.localPosition  += new Vector3(0, gameObject.GetComponent<Collider>().bounds.size.y + difPos/2, 0);
-        topBrick.GetComponent<Brick>().setColor(preColor);
-        topBrick.GetComponent<Brick>().bottom = this;
-        // note this.brick now has top
+        // Keep note of brick pos
+        Brick brickClass = topBrick.GetComponent<Brick>();
+        brickClass.bottom = this;
         this.hasTop = true;
-        topBrick.GetComponent<Brick>().addSnaps();
-        return topBrick.GetComponent<Brick>();
+        // Add Snaps
+        brickClass.addSnaps();
+        return brickClass;
     }
+
     public Brick addRightBrick(Color preColor){
-        Vector3 brickPos = gameObject.transform.position;
-        GameObject rightBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
-        rightBrick.transform.parent = gameObject.transform.parent;
+        GameObject rightBrick = createNewBrick(preColor);
+        // take into consideration differences in scale
         float difPos =  rightBrick.transform.localScale.y - gameObject.transform.localScale.y;
         rightBrick.transform.localPosition  += new Vector3(.05f, difPos/2, 0);
-        rightBrick.GetComponent<Brick>().setColor(preColor);
-        rightBrick.GetComponent<Brick>().hasLeft = true;
-        // note this.brick now has a brick to the right
+        // Keep note of brick pos
+        Brick brickClass = rightBrick.GetComponent<Brick>();
+        brickClass.hasLeft = true;
         this.hasRight = true;
-        this.right = rightBrick.GetComponent<Brick>();
-        rightBrick.GetComponent<Brick>().addSnaps();
+        this.right = brickClass;
+        // Add Snaps
+        brickClass.addSnaps();
         return this.right;
     }
+
     public Brick addLeftBrick(Color preColor){
-        Vector3 brickPos = gameObject.transform.position;
-        GameObject leftBrick = Instantiate(preBrick, brickPos, gameObject.transform.rotation);
-        leftBrick.transform.parent = gameObject.transform.parent;
+        GameObject leftBrick = createNewBrick(preColor);
+        // take into consideration differences in scale
         float difPos =  leftBrick.transform.localScale.y - gameObject.transform.localScale.y;
         leftBrick.transform.localPosition  += new Vector3(-.05f, difPos/2, 0);
-        leftBrick.GetComponent<Brick>().setColor(preColor);
-        leftBrick.GetComponent<Brick>().hasRight = true;
-        // note this.brick now has a brick to the left
+        // Keep note of brick pos
+        Brick brickClass = leftBrick.GetComponent<Brick>();
+        brickClass.hasRight = true;
         this.hasLeft = true;
-        leftBrick.GetComponent<Brick>().addSnaps();
-        this.left = leftBrick.GetComponent<Brick>();
+        // add snaps
+        brickClass.addSnaps();
+        this.left = brickClass;
         return this.left;
     }
+    // Create a new brick that is a child of the wall
+    private GameObject createNewBrick(Color preColor){
+        GameObject newBrick = Instantiate(preBrick, gameObject.transform.position, gameObject.transform.rotation);
+        // make the brick a child of the wall
+        newBrick.transform.parent = gameObject.transform.parent;
+        newBrick.GetComponent<Brick>().setColor(preColor);
+        return newBrick;
+    }
+    
+    // Setters
+    public void setColor(Color color){
+        this.color = color;
+        brickRenderer.material.color = color;
+    }
+
+    public void setScale(Vector3 scale, int numScale){
+        this.localScale = scale;
+        gameObject.transform.localScale = scale;
+        this.scale = numScale;
+    }
+
+    // Getters 
     public List<Snap> getSnaps(){
         return snaps;
     }
