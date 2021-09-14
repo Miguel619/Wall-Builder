@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public Panel currentPanel;
     public Brick previewBrick;
     private List<Panel> panelHistory = new List<Panel>();
+    [SerializeField]
+    BuildWall controller;
 
     private void Start(){
         SetupPanels();
@@ -67,22 +69,26 @@ public class MenuManager : MonoBehaviour
     }
     public void scaleSelector(int scale){
         if(scale == 1){
-            previewBrick.setScale(new Vector3(.05f, .05f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .05f, .05f), scale);
         }
         if(scale == 2){
-            previewBrick.setScale(new Vector3(.05f, .075f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .075f, .05f), scale);
         }
         if(scale == 3){
-            previewBrick.setScale(new Vector3(.05f, .1f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .1f, .05f), scale);
         }
         if(scale == 4){
-            previewBrick.setScale(new Vector3(.05f, .15f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .15f, .05f), scale);
         }
         if(scale == 5){
-            previewBrick.setScale(new Vector3(.05f, .2f, .05f));
+            previewBrick.setScale(new Vector3(.05f, .2f, .05f), scale);
         }
+        previewBrick.scale = scale;
     }
 
+    public void saveWall(){
+        controller.saveWall();
+    }
     
     
 }

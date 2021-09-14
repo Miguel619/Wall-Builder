@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Wall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public List<BrickHandler> placedBricks = new List<BrickHandler>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void AddBrickToList(Color color, int scale, string next){
+        placedBricks.Add(new BrickHandler (color.ToString(), scale, next));
     }
 }

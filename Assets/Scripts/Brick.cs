@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation.Samples;
 
+
 public class Brick : MonoBehaviour
 {
     public GameObject snap;
@@ -15,6 +16,7 @@ public class Brick : MonoBehaviour
     public Brick bottom = null;
     public Brick right = null;
     public Brick left = null;
+    public int scale = 1;
     public bool hasRight = false;
 
     public bool hasLeft = false;
@@ -34,9 +36,10 @@ public class Brick : MonoBehaviour
         brickRenderer.material.color = color;
     }
 
-    public void setScale(Vector3 scale){
+    public void setScale(Vector3 scale, int numScale){
         this.localScale = scale;
         gameObject.transform.localScale = scale;
+        this.scale = numScale;
     }
     public void addSnaps(){
         Vector3 brickPos = gameObject.transform.position;
